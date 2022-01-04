@@ -17,6 +17,7 @@ body {
     --light: rgb(80 75 75 / 40%);
     --shadow: rgb(22 18 18);
     --blur-radius: 26px;
+    --bottom-shadow-radius: 0px;
     --dimension: 33rem;
     /* display properties */
     height: var(--dimension);
@@ -28,9 +29,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* outer light and shadow halo of clock is made using box-shadow and its inset property */
-    box-shadow: 0px -15px var(--blur-radius) var(--light), inset 0px -15px var(--blur-radius) var(--light), 0px 15px var(--blur-radius) var(--shadow), inset 0px 15px var(--blur-radius) var(--shadow);
     border-radius: 50%;
+    animation: playHalo 2s ease-in-out 0s infinite alternate;
 }
 
 
@@ -53,31 +53,37 @@ body {
 #hr {
     height: 11rem;
     width: 0.6rem;
-    top: 29%;
+    top: 11.2rem;
     background-color: yellow;
     border-radius: 0.3rem;
-    transform-origin: 50% 75%;
+    transform-origin: 50% 74%;
 }
 
 #mn {
     height: 13rem;
     width: 0.45rem;
-    top: 24%;
+    top: 9.2rem;
     background-color: rgb(255, 17, 0);
     border-radius: 0.2rem;
-    transform-origin: 50% 78%;
+    transform-origin: 50% 77%;
 }
 
 #sc {
     height: 15rem;
     width: 0.3rem;
-    top: 21%;
+    top: 7.5rem;
     background-color: rgb(9, 255, 70);
     border-radius: 0.3rem;
-    transform-origin: 50% 75%;
+    transform-origin: 50% 77%;
 }
 
-.clock:hover {
-    --neon: rgb(0, 255, 242);
-    box-shadow: 0px -15px var(--blur-radius) var(--light), inset 0px -15px var(--blur-radius) var(--light), 0px 15px var(--blur-radius) var(--shadow), inset 0px 15px var(--blur-radius) var(--shadow), 0px 0px 140px 45px var(--neon);
+@keyframes playHalo {
+    from {
+        --neon: rgb(32, 255, 188);
+        box-shadow: 0px -15px var(--blur-radius) var(--light), inset 0px -15px var(--blur-radius) var(--light), 0px 3px var(--blur-radius) var(--shadow), inset 0px 15px var(--blur-radius) var(--shadow), 0px 0px 150px 1px var(--neon);
+    }
+    to {
+        --neon: rgb(17, 250, 238);
+        box-shadow: 0px -15px var(--blur-radius) var(--light), inset 0px -15px var(--blur-radius) var(--light), 0px 0px var(--blur-radius) var(--shadow), inset 0px 15px var(--blur-radius) var(--shadow), 0px 0px 200px 10px var(--neon);
+    }
 }
