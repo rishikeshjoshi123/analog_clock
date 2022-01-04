@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    height: 100vh;
+    --bottom-col: rgba(255, 255, 255, 0.863);
+    background-image: linear-gradient(0deg, var(--bottom-col), 1%, black);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    /* light and shadow in clock's border */
+    --light: rgb(80 75 75 / 40%);
+    --shadow: rgb(22 18 18);
+    --blur-radius: 26px;
+    --dimension: 33rem;
+    /* display properties */
+    height: var(--dimension);
+    width: var(--dimension);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('clock.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* outer light and shadow halo of clock is made using box-shadow and its inset property */
+    box-shadow: 0px -15px var(--blur-radius) var(--light), inset 0px -15px var(--blur-radius) var(--light), 0px 15px var(--blur-radius) var(--shadow), inset 0px 15px var(--blur-radius) var(--shadow);
+    border-radius: 50%;
+}
+
+
+/* round nut which holds all three hands */
+
+.clock::before {
+    position: absolute;
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    background: rgba(206, 205, 201, 0.938);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hand {
+    position: absolute;
+}
+
+#hr {
+    height: 11rem;
+    width: 0.6rem;
+    top: 29%;
+    background-color: yellow;
+    border-radius: 0.3rem;
+    transform-origin: 50% 75%;
+}
+
+#mn {
+    height: 13rem;
+    width: 0.45rem;
+    top: 24%;
+    background-color: rgb(255, 17, 0);
+    border-radius: 0.2rem;
+    transform-origin: 50% 78%;
+}
+
+#sc {
+    height: 15rem;
+    width: 0.3rem;
+    top: 21%;
+    background-color: rgb(9, 255, 70);
+    border-radius: 0.3rem;
+    transform-origin: 50% 75%;
+}
+
+.clock:hover {
+    --neon: rgb(0, 255, 242);
+    box-shadow: 0px -15px var(--blur-radius) var(--light), inset 0px -15px var(--blur-radius) var(--light), 0px 15px var(--blur-radius) var(--shadow), inset 0px 15px var(--blur-radius) var(--shadow), 0px 0px 140px 45px var(--neon);
+}
