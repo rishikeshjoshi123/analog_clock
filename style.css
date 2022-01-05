@@ -1,13 +1,15 @@
 body {
-    margin: auto;
+    height: 97vh;
     --bottom-col: rgb(90 90 89);
     background-image: linear-gradient(0deg, var(--bottom-col), 1%, black);
 }
 
-.container {
+.clock_container {
+    margin: auto;
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    --dimension: 96vh;
+    height: var(--dimension);
+    width: var(--dimension);
     justify-content: center;
     align-items: center;
 }
@@ -18,10 +20,9 @@ body {
     --light: rgb(80 75 75 / 40%);
     --shadow: rgb(22 18 18);
     --blur-radius: 26px;
-    --dimension: 40vw;
     /* display properties */
-    height: var(--dimension);
-    width: var(--dimension);
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
