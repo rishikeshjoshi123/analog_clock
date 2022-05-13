@@ -18,3 +18,8 @@ setInterval(() => {
     sc.style.transform = `rotateZ(${s}deg)`;
 
 });
+
+const notice = document.getElementById('notice');
+setTimeout(() => {
+    notice.style.display = 'none';
+}, 3000);
